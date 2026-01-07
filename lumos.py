@@ -4,8 +4,8 @@ import math
 import serial
 import time
 
-# ---------- SERIAL (Arduino) ----------
-ser = serial.Serial("COM5", 9600)   # change COM port
+
+ser = serial.Serial("COM5", 9600)   
 time.sleep(2)
 
 # ---------- MEDIAPIPE ----------
@@ -61,7 +61,7 @@ while True:
                 cv2.FONT_HERSHEY_SIMPLEX, 1,
                 (0, 255, 0), 2)
 
-            # 👉 Send ONLY Left Hand Distance to Arduino
+            #Send ONLY Left Hand Distance to Arduino
             if hand_label == "Left":
                 ser.write(f"{distance}\n".encode())
 
@@ -73,3 +73,4 @@ while True:
 cap.release()
 ser.close()
 cv2.destroyAllWindows()
+
